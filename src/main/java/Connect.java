@@ -7,14 +7,11 @@ public class Connect {
         Connection connection = null;
 
         try {
-            connection = (Connection) DriverManager.getConnection(
+            connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/messages_app?serverTimezone=UTC",
                     "root",
                     "");
 
-            if (connection != null)  {
-                System.out.println("Succesful connection");
-            }
         } catch (SQLException e) {
             System.out.println("error " + e);
         }
