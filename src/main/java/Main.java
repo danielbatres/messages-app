@@ -33,10 +33,10 @@ public class Main {
                     MessagesService.listMessages();
                     break;
                 case 3:
-                    MessagesService.deleteMessage();
+                    MessagesService.editMessage();
                     break;
                 case 4:
-                    MessagesService.editMessage();
+                    MessagesService.deleteMessage();
                     break;
                 case 5:
                     break;

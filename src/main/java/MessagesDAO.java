@@ -5,10 +5,11 @@ import java.sql.SQLException;
 public class MessagesDAO {
     private static PreparedStatement ps = null;
     private static ResultSet rs = null;
+    private static String query;
 
     public static void createDBMessage(MessagesModel message) {
         try {
-            String query = "INSERT INTO `messages` (`message`, `autor_message`) VALUES (?,?);";
+            query = "INSERT INTO `messages` (`message`, `autor_message`) VALUES (?,?);";
 
             ps = Connect.getConnection().prepareStatement(query);
             ps.setString(1, message.getMessage());
@@ -24,7 +25,7 @@ public class MessagesDAO {
 
     public static void readDBMessages() {
         try {
-            String query = "SELECT * FROM messages";
+            query = "SELECT * FROM messages";
 
             ps = Connect.getConnection().prepareStatement(query);
             rs = ps.executeQuery();
@@ -42,7 +43,18 @@ public class MessagesDAO {
     }
 
     public static void deleteDBMessages(int idMessage) {
+        try {
+            query = "DELETE FROM `messages` WHERE `messages`.`id_message` = ?";
 
+            ps = Connect.getConnection().prepareStatement(query);
+            ps.setInt(1, idMessage);
+            ps.executeUpdate();
+
+            System.out.println("Message deleted");
+        } catch (SQLException e) {
+            System.out.println("Message couldn't be deleted");
+            throw new RuntimeException(e);
+        }
     }
 
     public static void updateDBMessage(MessagesModel message) {
