@@ -11,7 +11,7 @@ public class Main {
             System.out.println("_____________________\n" +
                     "Messages aplication \n" +
                     "[1] Create message \n" +
-                    "[2] List message n" +
+                    "[2] List message \n" +
                     "[3] Edit message \n" +
                     "[4] Delete message \n" +
                     "[5] Exit \n");
