@@ -3,19 +3,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Connect {
-    public Connection getConnection() {
-        Connection connection = null;
+    private static Connection singletonConnection;
 
-        try {
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/messages_app?serverTimezone=UTC",
-                    "root",
-                    "");
+    public static Connection getConnection() {
 
-        } catch (SQLException e) {
-            System.out.println("error " + e);
+        if (singletonConnection == null) {
+            try {
+                singletonConnection = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/messages_app?serverTimezone=UTC",
+                        "root",
+                        "");
+
+            } catch (SQLException e) {
+                System.out.println("error " + e);
+            }
         }
 
-        return connection;
+        return singletonConnection;
     }
 }

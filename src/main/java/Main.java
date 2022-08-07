@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Connect connection = new Connect();
-
         Scanner sc = new Scanner(System.in);
 
         int option = 0;
