@@ -1,8 +1,8 @@
-# Messages aplication
+# Messages application
 
 ## Description
 
-Console aplication, CRUD messages interaction in Java implementing data persistence.
+Console application, CRUD messages interaction in Java implementing data persistence.
 
 ## Course
 
